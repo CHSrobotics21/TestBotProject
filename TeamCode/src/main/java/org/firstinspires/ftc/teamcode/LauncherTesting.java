@@ -16,8 +16,8 @@ public class LauncherTesting extends LinearOpMode {
             robo.launcherL.setVelocity(-500);
             robo.launcherR.setVelocity(700);
             sleep(1000);
-            robo.launcherL.setVelocity(-500);
-            robo.launcherR.setVelocity(700);
+            robo.launcherL.setVelocity(0);
+            robo.launcherR.setVelocity(0);
 
 
         }
