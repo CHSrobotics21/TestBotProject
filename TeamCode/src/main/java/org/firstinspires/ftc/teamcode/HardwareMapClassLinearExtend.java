@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.hardware.bosch.BNO055IMU;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
@@ -10,7 +11,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
-public class HardwareMapClass {
+public class HardwareMapClassLinearExtend extends LinearOpMode {
     private ElapsedTime timer = new ElapsedTime(ElapsedTime.Resolution.SECONDS);
     HardwareMap hwMap=null;
     public DcMotor frMotor=null, flMotor=null, brMotor=null, blMotor=null;
@@ -28,9 +29,15 @@ public class HardwareMapClass {
     public boolean robotPerspective = false;
     public double fieldReference = 0.0;
 
-    public HardwareMapClass(){
+    public HardwareMapClassLinearExtend(){
 
     }
+
+    @Override
+    public void runOpMode(){
+
+    }
+
     public void init(HardwareMap ahwMap){
         hwMap = ahwMap;
         frMotor = hwMap.dcMotor.get("frontright");
@@ -51,9 +58,9 @@ public class HardwareMapClass {
         redLED.setMode(DigitalChannel.Mode.OUTPUT);
         greenLED.setMode(DigitalChannel.Mode.OUTPUT);
     }
-    public void whileLoop(boolean isLinear){
+    public void psuedoGoToPosition(){
         timer.reset();
-        while(isLinear&&timer.time()<2){
+        while(opModeIsActive()&&timer.time()<2){
             frMotor.setPower(.9);
             flMotor.setPower(.9);
             brMotor.setPower(.9);
